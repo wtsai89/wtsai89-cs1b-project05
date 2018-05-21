@@ -9,7 +9,7 @@ import java.util.Scanner;
  *  the attributes stored in CSVReader object to create objects of type Country class.
  *  Then adds the newest country read into the list
  *
- * @author Foothill College, [YOUR NAME HERE]
+ * @author Foothill College, William Tsai
  */
 public class TestCountryList
 {
@@ -58,7 +58,7 @@ public class TestCountryList
 		// TODO: Override the toString() method such that it traverses the list of nodes
 		//       and prints every element in the list.
 		// Note: To debug your list, do not comment this line out
-		System.out.println("\nList of countries: " + selectedCountries);
+		System.out.println("\nList of countries: \n" + selectedCountries);
 		// Assuming the user selects to add 3 countries to the list, the output would be
 		// List of countries: 
 		// Brazil		46.31	53.11	63.67	78.55	87.54	100.88	119.00	125.00	135.30	138.95	
@@ -138,6 +138,60 @@ public class TestCountryList
 		// TODO: At minimum include a test for each case of inserting at the 
 		//      front, in the middle and end of the list.
 		//
+
+		//testing add
+		Country countryToAdd = allCountries[1];
+		System.out.printf("Adding country with name %s to the end of the list.\n", countryToAdd.getName());
+		selectedCountries.add(countryToAdd);
+		countryToAdd = allCountries[2];
+		System.out.printf("Adding country with name %s to the end of the list.\n", countryToAdd.getName());
+		selectedCountries.add(countryToAdd);
+		System.out.println("\nList of countries: \n" + selectedCountries);
+
+		//testing contains
+		Country testCountry = new Country("Algeria");
+		System.out.printf("Checking if list contains this country: %s\n", testCountry.getName());
+		foundCountry = selectedCountries.contains(testCountry);
+		if (foundCountry != null)
+		{
+			System.out.println("Country " + testCountry.getName() + " found with details:\n" + foundCountry);
+		}
+		else
+		{
+			System.out.println("Country " + testCountry.getName() + " not found.");
+		}
+		testCountry = new Country("Mordor");
+		System.out.printf("Checking if list contains this country: %s\n", testCountry.getName());
+		foundCountry = selectedCountries.contains(testCountry);
+		if (foundCountry != null)
+		{
+			System.out.println("Country " + testCountry.getName() + " found with details:\n" + foundCountry);
+		}
+		else
+		{
+			System.out.println("Country " + testCountry.getName() + " not found.");
+		}
+
+		//testing insertAtIndex with a countryList of size 10
+		System.out.println();
+
+		countryToAdd = allCountries[3];
+		int index = 0;
+		System.out.printf("Inserting the country %s at index %d\n", countryToAdd.getName(), index);
+		selectedCountries.insertAtIndex(countryToAdd, index);
+		System.out.println("\nList of countries: \n" + selectedCountries);
+
+		countryToAdd = allCountries[4];
+		index = selectedCountries.size() / 2;
+		System.out.printf("Inserting the country %s at index %d\n", countryToAdd.getName(), index);
+		selectedCountries.insertAtIndex(countryToAdd, index);
+		System.out.println("\nList of countries: \n" + selectedCountries);
+
+		countryToAdd = allCountries[5];
+		index = selectedCountries.size();
+		System.out.printf("Inserting the country %s at index %d\n", countryToAdd.getName(), index);
+		selectedCountries.insertAtIndex(countryToAdd, index);
+		System.out.println("\nList of countries: \n" + selectedCountries);
 	}
 
 	/**
@@ -149,10 +203,10 @@ public class TestCountryList
 	{
 		// NOTE: Make sure to use relative path instead of specifying the entire path
 		// (avoid entire path such as /Users/alicew/myworkspace/so_on_and_so_forth).
-		final String FILENAME = "resources/cellular_short_oneDecade.csv";	// Directory path for Mac OS X
+		//final String FILENAME = "resources/cellular_short_oneDecade.csv";	// Directory path for Mac OS X
 
 		// TODO: Make sure to test with the full input file as well
-		//final String FILENAME = "resources/cellular.csv"; // Directory path for Mac OS X
+		final String FILENAME = "resources/cellular.csv"; // Directory path for Mac OS X
 		// final String FILENAME = "resources\\cellular.csv"; // Directory path for Windows OS (i.e. Operating System)
 
 		// For debugging purposes

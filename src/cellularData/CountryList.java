@@ -1,15 +1,25 @@
 package cellularData;
 
+/**
+ * Organizes multiple countries into a linked list
+ */
 public class CountryList {
     private CountryNode head, walker;
     private int size;
 
+    /**
+     * initializes an empty list
+     */
     public CountryList()
     {
         head = null;
         size = 0;
     }
 
+    /**
+     * add a node to the end of the list
+     * @param country
+     */
     public void add(Country country)
     {
         CountryNode node = new CountryNode(country);
@@ -29,6 +39,11 @@ public class CountryList {
         size++;
     }
 
+    /**
+     * returns the country at the specified index
+     * @param index
+     * @return
+     */
     public Country getIndex(int index)
     {
         if(index < 0 || index >= size)
@@ -43,6 +58,11 @@ public class CountryList {
         return walker.getCountry();
     }
 
+    /**
+     * checks if the list contains a country and returns that country. Otherwise return null
+     * @param country
+     * @return
+     */
     public Country contains(Country country)
     {
         walker = head;
@@ -58,6 +78,10 @@ public class CountryList {
         return null;
     }
 
+    /**
+     * overrides Object class
+     * @return
+     */
     public String toString()
     {
         String s = "";
@@ -71,11 +95,20 @@ public class CountryList {
         return s;
     }
 
+    /**
+     * getter method for size
+     * @return
+     */
     public int size()
     {
         return size;
     }
 
+    /**
+     * adds a country to the list at the specified index
+     * @param country
+     * @param index
+     */
     public void insertAtIndex(Country country, int index)
     {
         if(index < 0)

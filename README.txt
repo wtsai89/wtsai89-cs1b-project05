@@ -29,4 +29,4 @@ resources/cellular.csv
     - complete table for cellular data
 
 resources/RUN.txt
-    - output of TestCSVReader's class
+    - output of TestCountryList's class
